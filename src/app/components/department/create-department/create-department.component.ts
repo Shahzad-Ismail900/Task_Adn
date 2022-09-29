@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DepartmentService } from 'src/app/services/department.service';
+import { SystemService } from 'src/app/services/system.service';
 
 @Component({
   selector: 'app-create-department',
@@ -12,11 +13,15 @@ import { DepartmentService } from 'src/app/services/department.service';
 export class CreateDepartmentComponent implements OnInit {
 
   // submitted: boolean;
-  
+
   deptForm!: FormGroup;
-  deptId: any=0;
+  deptId: any = 0;
   Header = "Add Department";
-  constructor(private formBuilder: FormBuilder, private _deptService: DepartmentService, private _snackBar: MatSnackBar,
+  
+  constructor(private formBuilder: FormBuilder,
+    private _deptService: DepartmentService,
+    private _systemService: SystemService,
+    private _snackBar: MatSnackBar,
     private dialogref: MatDialogRef<CreateDepartmentComponent>,
     @Inject(MAT_DIALOG_DATA) private data: any
 
@@ -38,11 +43,11 @@ export class CreateDepartmentComponent implements OnInit {
       deptId: 0,
 
     });
-    
+
   }
   isEdit() {
     if (this.deptId) {
-      this.Header= "Edit Department";
+      this.Header = "Edit Department";
       this._deptService.getDeptById(this.deptId).subscribe(response => {
         if (response.isSucessful) {
           let data = response.data;
@@ -61,6 +66,7 @@ export class CreateDepartmentComponent implements OnInit {
 
 
     request.deptId = this.deptId;
+    request.createdBy = this._systemService.getUserId();
     this._deptService.save(request).subscribe(response => {
       this.shownotification("Subit sucessfully..!", "Success");
       this.dialogref.close('success');

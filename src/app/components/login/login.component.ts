@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         if (response.isSucessful) {
           this._login.IsLogin = true;
           let data = response.data;
-          this._auth.StoreCredientials(data.token.token, data.UserId);
+          this._auth.StoreCredientials(data.token, data.userId);
           this._router.navigate(['/department']);
         }
         else

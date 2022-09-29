@@ -7,17 +7,18 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth/auth.service';
+import { SystemService } from '../services/system.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
 
-  constructor(private _authService :AuthService) {}
+  constructor(private _systemService :SystemService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
       request = request.clone({
       setHeaders: {
-        Authorization: `Bearer ${this._authService.getToken()}`
+        Authorization: `Bearer ${this._systemService.getToken()}`
       }
     });
     return next.handle(request);

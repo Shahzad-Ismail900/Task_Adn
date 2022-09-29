@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DepartmentService } from 'src/app/services/department.service';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { SystemService } from 'src/app/services/system.service';
 
 @Component({
   selector: 'app-create-employee',
@@ -25,6 +26,7 @@ export class CreateEmployeeComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private _empService: EmployeeService,
     private _deptService: DepartmentService,
+    private _systemService : SystemService,
     private _snackBar: MatSnackBar,
     private dialogref: MatDialogRef<CreateEmployeeComponent>,
     @Inject(MAT_DIALOG_DATA) private data: any
@@ -109,6 +111,8 @@ export class CreateEmployeeComponent implements OnInit {
 
 
     request.empId = this.empId;
+    request.createdBy = this._systemService.getUserId();
+
     this._empService.save(request).subscribe(response => {
       this.shownotification("Subit sucessfully..!", "Success");
       this.dialogref.close('success');
