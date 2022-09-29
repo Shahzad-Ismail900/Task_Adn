@@ -24,6 +24,7 @@ export class DepartmentComponent implements OnInit, AfterViewInit {
     // this.dataSource.paginator = this.paginator;
   }
   ngOnInit() {
+
     this.getAllDept();
   }
 

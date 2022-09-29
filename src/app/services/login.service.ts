@@ -8,7 +8,7 @@ import { ApiResponse } from '../interfaces/ApiResponse';
 })
 export class LoginService {
 
-  IsLogin:boolean =false;
+  IsLogin:any ;
   constructor(private http: HttpClient) { }
 
   authenticate(user: any) {

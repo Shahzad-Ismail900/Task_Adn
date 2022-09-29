@@ -5,12 +5,14 @@ import { EmployeeComponent } from './employee.component';
 import { MaterialModule } from 'src/app/shared/material.module';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from 'src/app/guard/auth.guard';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: EmployeeComponent
+    component: EmployeeComponent,
+    canActivate:[AuthGuard]
 
   }]
 

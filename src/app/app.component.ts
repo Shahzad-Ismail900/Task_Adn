@@ -13,7 +13,7 @@ export class AppComponent {
    *
    */
   constructor( public _login: LoginService) {
-  this._login.IsLogin = false;
+  // this._login.IsLogin = false;
     
   }
 }

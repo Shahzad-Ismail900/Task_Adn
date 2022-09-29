@@ -6,12 +6,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateDepartmentComponent } from './create-department/create-department.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from 'src/app/guard/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: DepartmentComponent
-
+    component: DepartmentComponent,
+    canActivate:[AuthGuard]
   }]
 
 @NgModule({

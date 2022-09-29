@@ -12,4 +12,14 @@ export class AuthService {
     localStorage.setItem("Credientials", JSON.stringify(obj));
 
   }
+
+  getToken() {
+    let obj: any = localStorage.getItem("Credientials");
+    if (obj != null) {
+      let token = JSON.parse(obj)
+      return token.token;
+    }
+    else return "";
+    //  return;
+  }
 }
