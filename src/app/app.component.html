@@ -1,0 +1,23 @@
+
+
+<mat-toolbar *ngIf ="_login.IsLogin" color="primary" class="tes">
+
+  <!-- </div> -->
+      <mat-toolbar-row class="float-right">
+        <mat-icon>menu</mat-icon>
+        <!-- <mat-icon matBadge={{3}} matBadgeColor="warn">home</mat-icon> -->
+        <div >
+          <a mat-button [routerLink]="'/department'"> Department </a>
+          <a mat-button [routerLink]="'/employee'"> Employee </a>
+    
+          <!-- //Shahzad -->
+        </div>
+        </mat-toolbar-row>
+      
+      
+      </mat-toolbar> 
+  
+
+<router-outlet>
+
+</router-outlet>

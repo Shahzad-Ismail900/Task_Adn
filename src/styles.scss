@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css" ;
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.dialogheader {
+    padding: 13px;
+    background: #3f4d67;
+    margin-top: -24px !important;
+    margin-left: -24px !important;
+    margin-right: -24px !important;
+    letter-spacing: 2px;
+    color: white;
+    padding-left: 20px !important;
+  }
+
+  .close:hover {
+    color: #fff !important;
+    text-decoration: none;
+  }

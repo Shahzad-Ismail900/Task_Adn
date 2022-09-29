@@ -1,0 +1,57 @@
+<div class="container container-width mt-5">
+    <div class="justify-content-center">
+    
+     <div class="row">
+         <div class="d-flex justify-content-end">
+             <button mat-raised-button color="primary" (click)="addDept()">Add Department</button>
+         </div>
+     </div>
+    
+        <div class="mat-elevation-z8 mt-2">
+            <table mat-table [dataSource]="dataSource">
+          
+              <!-- Position Column -->
+              <!-- <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+              </ng-container> -->
+          
+              <!-- Name Column -->
+              <ng-container matColumnDef="code">
+                <th mat-header-cell *matHeaderCellDef> Code </th>
+                <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+              </ng-container>
+          
+              <!-- Weight Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+          
+           
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let element">
+
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu" style="color: black;">
+                    <button mat-menu-item title="Edit" (click)="editDept(element.deptId)"
+                      >Edit</button>
+                    <button mat-menu-item title="Delete" (click)="deleteDept(element.deptId)">Delete</button>
+                  </mat-menu></td>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[ 10, 20]"
+                           showFirstLastButtons 
+                           aria-label="Select page of periodic elements">
+            </mat-paginator>
+          </div>
+    </div>
+    
+    </div>

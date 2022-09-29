@@ -1,0 +1,126 @@
+
+<h2 mat-dialog-title class="dialogheader">{{Header}}
+ 
+            <button mat-button class="close"  (click)="cancel()"><span
+                ><i class="material-icons ">close</i></span></button>
+        </h2>
+
+<mat-card>
+    <mat-card-content class="mdlwidth">
+        <form [formGroup]="empForm" >
+                    <div class="row d-flex align-items-center">
+          
+                      <mat-form-field class="col-md-6" appearance="fill">
+                        <mat-label>Code</mat-label>
+                        <input
+                          required
+                          matInput
+                          placeholder="Employee Code"
+                          formControlName="code"
+                          type="text"
+                        />
+                        <mat-error
+                          *ngIf="
+                          empForm.controls.name.hasError('required')">
+                          <strong>Code</strong>
+                          is required.
+                        </mat-error>
+                      </mat-form-field>
+          
+                      <mat-form-field class="col-md-6" appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input
+                          required
+                          matInput
+                          placeholder="Employee Name"
+                          formControlName="name"
+                          type="text"
+                        />
+                        <mat-error
+                          *ngIf="
+                          empForm.controls.name.hasError('required')">
+                          <strong>Name</strong>
+                          is required.
+                        </mat-error>
+                      </mat-form-field>
+
+                      <mat-form-field class="col-md-6" appearance="fill">
+                        <mat-select placeholder="Select  Department" formControlName="deptId" required>
+                    
+                          <mat-option *ngFor="let item of department" [value]="item.deptId">
+                            {{item.name}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="empForm.controls.deptId.hasError('required')">Department is required</mat-error>
+                        
+                      </mat-form-field>
+
+
+                      <mat-form-field class="col-md-6" appearance="fill">
+                        <mat-select placeholder="Select  Type" formControlName="empTypeId" required>
+                    
+                          <mat-option *ngFor="let item of types" [value]="item.id">
+                            {{item.description}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="empForm.controls.empTypeId.hasError('required')">Type is required</mat-error>
+                        
+                      </mat-form-field>
+
+                      
+                      <mat-form-field class="col-md-6" appearance="fill">
+                        <mat-select placeholder="Select  Status" formControlName="empStatusId" required>
+                    
+                          <mat-option *ngFor="let item of status" [value]="item.id">
+                            {{item.description}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="empForm.controls.empTypeId.hasError('required')">Status is required</mat-error>
+                        
+                      </mat-form-field>
+
+
+                      <mat-form-field class="col-md-6" appearance="fill">
+                        <mat-label>Contact #</mat-label>
+                        <input
+                      
+                          matInput
+                          placeholder="Contact #"
+                          formControlName="contactNo"
+                          type="text"
+                        />
+                     
+                      </mat-form-field>
+
+                      <mat-form-field class="col-md-12" appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input
+                      
+                          matInput
+                          placeholder="Email"
+                          formControlName="email"
+                          type="text"
+                        />
+                     
+                      </mat-form-field>
+                    </div>
+
+                  </form>
+
+    </mat-card-content>
+</mat-card>
+
+
+
+<mat-dialog-actions class="right">
+    <button class="btncancel" mat-raised-button color="warn" (click)="cancel()">
+        <mat-icon>clear</mat-icon>
+
+        <span>Close</span>
+    </button>
+    <button class="btncancel" mat-raised-button color="primary" (click)="onSubmit()">
+        <mat-icon>save</mat-icon>
+
+        <span>Submit</span>
+    </button>
+</mat-dialog-actions>

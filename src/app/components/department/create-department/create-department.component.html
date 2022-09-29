@@ -1,0 +1,60 @@
+
+<h2 mat-dialog-title class="dialogheader">{{Header}}
+      
+   <button mat-button class="close"  (click)="cancel()"><span
+                    ><i class="material-icons ">close</i></span></button>
+            </h2>
+
+            <form [formGroup]="deptForm" >
+                        <div class="row d-flex align-items-center">
+              
+                          <mat-form-field class="col-md-12" appearance="fill">
+                            <mat-label>Code</mat-label>
+                            <input
+                              required
+                              matInput
+                              placeholder="Department Code"
+                              formControlName="code"
+                              type="text"
+                            />
+                            <mat-error
+                              *ngIf="
+                              deptForm.controls.name.hasError('required')">
+                              <strong>Code</strong>
+                              is required.
+                            </mat-error>
+                          </mat-form-field>
+              
+                          <mat-form-field class="col-md-12" appearance="fill">
+                            <mat-label>Name</mat-label>
+                            <input
+                              required
+                              matInput
+                              placeholder="Department Name"
+                              formControlName="name"
+                              type="text"
+                            />
+                            <mat-error
+                              *ngIf="
+                              deptForm.controls.name.hasError('required')">
+                              <strong>Name</strong>
+                              is required.
+                            </mat-error>
+                          </mat-form-field>
+              
+                        </div>
+                      </form>
+    
+   
+    <mat-dialog-actions class="right">
+        <button class="btncancel" mat-raised-button color="warn" (click)="cancel()">
+            <mat-icon>clear</mat-icon>
+    
+            <span>Close</span>
+        </button>
+        <button class="btncancel" mat-raised-button color="primary" (click)="onSubmit()">
+            <mat-icon>save</mat-icon>
+    
+            <span>Submit</span>
+        </button>
+    </mat-dialog-actions>
