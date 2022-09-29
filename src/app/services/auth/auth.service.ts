@@ -13,13 +13,5 @@ export class AuthService {
 
   }
 
-  getToken() {
-    let obj: any = localStorage.getItem("Credientials");
-    if (obj != null) {
-      let token = JSON.parse(obj)
-      return token.token;
-    }
-    else return "";
-    //  return;
-  }
+ 
 }
