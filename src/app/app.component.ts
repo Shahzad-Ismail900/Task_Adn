@@ -1,4 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from './services/login.service';
 
 @Component({
@@ -12,8 +14,14 @@ export class AppComponent {
   /**
    *
    */
-  constructor( public _login: LoginService) {
-  // this._login.IsLogin = false;
-    
+  constructor(private _route: Router,public _login:LoginService) {
+    //
+
+  }
+
+  Logout() {
+    localStorage.clear();
+    this._login.IsLogin = false;
+    this._route.navigate(['/login']);
   }
 }

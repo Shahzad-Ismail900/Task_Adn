@@ -3,17 +3,20 @@
 <mat-toolbar *ngIf ="_login.IsLogin" color="primary" class="tes">
 
   <!-- </div> -->
-      <mat-toolbar-row class="float-right">
+      <mat-toolbar-row class="float-right col-md-12">
         <mat-icon>menu</mat-icon>
         <!-- <mat-icon matBadge={{3}} matBadgeColor="warn">home</mat-icon> -->
-        <div >
+        <div class="col-md-12">
           <a mat-button [routerLink]="'/department'"> Department </a>
           <a mat-button [routerLink]="'/employee'"> Employee </a>
     
           <!-- //Shahzad -->
+          <a class="logout"  mat-button color="accent" (click)="Logout()"> Log Out </a>
         </div>
-        </mat-toolbar-row>
+       
       
+        </mat-toolbar-row>
+     
       
       </mat-toolbar> 
   
