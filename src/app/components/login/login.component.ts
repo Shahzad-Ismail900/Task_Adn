@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private _auth: AuthService) {
     this.LoginForm = this.fb.group({
       userName: new FormControl('', Validators.required),
-      password: new FormControl('')
+      password: new FormControl('', Validators.required)
     });
   }
 
